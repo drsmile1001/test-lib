@@ -22,4 +22,11 @@ jobs:
     - name: Build
       run: dotnet build --configuration Release --no-restore
     - name: test
-      run: dotnet nuget
+      run: dotnet nuget sources add -name "github" -Source https://nuget.pkg.github.com/drsmile1001/index.json -Username drsmile1001 -Password ${{ secrets.GITHUB_TOKEN }}
+
+    - name: Pack
+      run: dotnet pack -c Release -o out
+
+    - name: Push generated package to GitHub registry
+      run: dotnet nuget push .\out\*.nupkg -Source "github" -SkipDuplicate
+      
