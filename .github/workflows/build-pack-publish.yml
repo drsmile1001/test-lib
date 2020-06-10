@@ -13,15 +13,22 @@ jobs:
 
     steps:
     - uses: actions/checkout@v2
+
     - name: Setup .NET Core
       uses: actions/setup-dotnet@v1
       with:
         dotnet-version: 3.1.101
+
     - name: Install dependencies
       run: dotnet restore
+
     - name: Build
       run: dotnet build --configuration Release --no-restore
-    - name: test
+
+    - name: Install NuGet client
+      uses: warrenbuckley/Setup-Nuget@v1
+
+    - name: Add private GitHub registry to NuGet
       run: dotnet nuget sources add -name "github" -Source https://nuget.pkg.github.com/drsmile1001/index.json -Username drsmile1001 -Password ${{ secrets.GITHUB_TOKEN }}
 
     - name: Pack
