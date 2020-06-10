@@ -32,5 +32,5 @@ jobs:
       run: dotnet pack -c Release -o out
 
     - name: Push generated package to GitHub registry
-      run: dotnet nuget push .\out\*.nupkg --source "github" -SkipDuplicate
+      run: dotnet nuget push .\out\*.nupkg --source "github" --skip-duplicate
       
