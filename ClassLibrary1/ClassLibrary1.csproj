@@ -1,0 +1,13 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netstandard2.0</TargetFramework>
+    <PackageId>TestLib</PackageId>
+    <Version>1.0.2</Version>
+    <Authors>drsmile1001</Authors>
+    <Company>drsmile1001</Company>
+    <PackageDescription>測試</PackageDescription>
+    <RepositoryUrl>https://github.com/drsmile1001/test-lib</RepositoryUrl>
+  </PropertyGroup>
+
+</Project>
