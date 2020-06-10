@@ -31,9 +31,6 @@ jobs:
     - name: Pack
       run: dotnet pack -c Release -o out
 
-    - name: show dir
-      run: dir
-
     - name: Push generated package to GitHub registry
       run: dotnet nuget push out/*.nupkg --source "github" --skip-duplicate
       
